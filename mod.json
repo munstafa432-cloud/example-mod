@@ -1,14 +1,19 @@
 {
 	"geode": "3.0.0-beta.1",
-	"gd": { "android": "2.2074" },
-	"id": "yourname.testmod",
+	"gd": {
+		"android": "2.2074"
+	},
+	"id": "user.testmod",
 	"version": "v1.0.0",
-	"name": "My Android Mod",
-	"developer": "YourName",
-	"description": "Built on my phone!",
+	"name": "My First Mod",
+	"developer": "Player",
+	"description": "32-bit Mod",
 	"repository": "",
 	"dependencies": [],
-	"resources": { "fonts": {}, "sprites": [] },
+	"resources": {
+		"fonts": {},
+		"sprites": []
+	},
 	"tags": ["utility"],
 	"settings": {}
 }
