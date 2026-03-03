@@ -5,15 +5,9 @@ using namespace geode::prelude;
 
 class $modify(MenuLayer) {
     bool init() {
-        if (!MenuLayer::init()) {
-            return false;
-        }
+        if (!MenuLayer::init()) return false;
 
-        auto alert = FLAlertLayer::create(
-            "Geode Mod", 
-            "It worked! This is running on 32-bit Android!", 
-            "OK"
-        );
+        auto alert = FLAlertLayer::create("Geode", "Mod Loaded!", "OK");
         alert->show();
 
         return true;
