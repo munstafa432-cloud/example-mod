@@ -5,11 +5,17 @@ using namespace geode::prelude;
 
 class $modify(MenuLayer) {
     bool init() {
-        if (!MenuLayer::init()) return false;
+        if (!MenuLayer::init()) {
+            return false;
+        }
 
-        FLAlertLayer::create("Geode", "Success! Mod is working!", "OK Concord")->show();
+        auto alert = FLAlertLayer::create(
+            "Geode Mod", 
+            "It worked! This is running on 32-bit Android!", 
+            "OK"
+        );
+        alert->show();
 
-        
         return true;
     }
 };
