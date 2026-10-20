@@ -23,11 +23,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Build the mod
         uses: geode-sdk/build-geode-mod@main
         with:
           target: ${{ matrix.config.target }}
-          # Optional: specify a specific SDK version
-          # sdk: 'latest'
-          # cli: 'latest'
+
+      # THIS IS THE MISSING STEP
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Enz7y-Menu-${{ matrix.config.target }}
+          path: build/*.geode
