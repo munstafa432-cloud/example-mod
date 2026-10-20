@@ -10,19 +10,16 @@ project(Enz7y-Menu)
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp)
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 
-# Verify the Geode SDK is available
 if (NOT DEFINED ENV{GEODE_SDK})
     message(FATAL_ERROR "Unable to find Geode SDK! Please define GEODE_SDK environment variable")
 else()
     message(STATUS "Found Geode: $ENV{GEODE_SDK}")
 endif()
 
-# Add the Geode SDK
 add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 setup_geode_mod(${PROJECT_NAME})
 
-# Fetch gd-imgui-cocos using CPM
-CPMAddPackage("gh:matcool/gd-imgui-cocos#main")
+# USE THE UPDATED FORK HERE
+CPMAddPackage("gh:Eclipse-Utilities/gd-imgui-cocos#main")
 
-# Link the imgui-cocos library to your mod
 target_link_libraries(${PROJECT_NAME} imgui-cocos)
