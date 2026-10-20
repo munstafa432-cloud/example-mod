@@ -1,13 +1,13 @@
 {
-	"geode": "3.0.0-beta.1",
+	"geode": "5.11.2",
 	"gd": {
-		"android": "2.2074"
+		"android": "2.2081"
 	},
-	"id": "user.testmod",
+	"id": "Enz7y-Menu",
 	"version": "v1.0.0",
-	"name": "My First Mod",
-	"developer": "Player",
-	"description": "32-bit Mod",
+	"name": "Enz7y Menu",
+	"developer": "Enz7y",
+	"description": "a privite VibeCoded Menu",
 	"repository": "",
 	"dependencies": [],
 	"resources": {
