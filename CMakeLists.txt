@@ -11,5 +11,5 @@ setup_geode_mod(Enz7y-Menu)
 target_sources(${PROJECT_NAME} PRIVATE
     src/EchoMenu.hpp
     src/EchoMenu.cpp
-    src/pause menu hook.cpp
+    src/Pause menu hook.cpp
 )
