@@ -1,7 +1,7 @@
 // EchoMenu.hpp
 #pragma once
 #include <Geode/Geode.hpp>
-#include <imgui-cocos/include/imgui-cocos.hpp>
+#include <imgui-cocos.hpp>
 
 class EchoMenu {
 public:
