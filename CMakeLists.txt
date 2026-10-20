@@ -19,7 +19,7 @@ endif()
 add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 setup_geode_mod(${PROJECT_NAME})
 
-# USE THE UPDATED FORK HERE
-CPMAddPackage("gh:Eclipse-Utilities/gd-imgui-cocos#main")
+# Correct repository (matcool/gd-imgui-cocos)
+CPMAddPackage("gh:matcool/gd-imgui-cocos#b93f08ccef778a53ebba09b20c347f6a63980119") # recent commit hash
 
 target_link_libraries(${PROJECT_NAME} imgui-cocos)
