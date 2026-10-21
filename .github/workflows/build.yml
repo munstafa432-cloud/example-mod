@@ -6,6 +6,7 @@ on:
       - "**"
 
 jobs:
+  # Step 1: Build for each platform separately
   build:
     strategy:
       fail-fast: false
@@ -18,22 +19,42 @@ jobs:
             os: ubuntu-latest
             target: Android64
 
-    name: ${{ matrix.config.name }}
+    name: Build ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Build the mod
         uses: geode-sdk/build-geode-mod@main
         with:
           target: ${{ matrix.config.target }}
 
-      # THIS IS THE MISSING STEP
-      - name: Upload Artifact
+      # Upload intermediate builds so the package job can find them
+      - name: Upload Intermediate Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Enz7y-Menu-${{ matrix.config.target }}
+          name: build-${{ matrix.config.target }}
+          path: build/*.geode
+
+  # Step 2: Combine them into a single .geode file
+  package:
+    name: Package Combined Mod
+    needs: [build] # Waits for the 32 and 64 builds to finish
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # The action automatically finds the downloaded artifacts
+      - name: Combine Geode files
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          combine: true
+
+      # Upload the final combined .geode file
+      - name: Upload Final Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Enz7y-Menu-Combined
           path: build/*.geode
